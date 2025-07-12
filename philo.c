@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:09 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/12 18:46:16 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/13 01:42:19 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(int argc, char *argv[])
 {
-	t_philosopher	*philosophers;
-	t_rules			*rules;
-
+	t_rules	*rules;
 	initialize_vars(argc, **argv, rules);
 }
