@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/13 16:15:34 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/13 23:17:15 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,59 @@ static int	*valid_args(int argc, char **argv, t_rules *rules, long long *val)
 	return (val);
 }
 
-void	join_philosophers(t_rules *rules)
+static void	initialize_join_threads(t_rules *rules)
 {
 	int	i;
 
 	i = 0;
 	while (i < rules->number_of_philosophers)
 	{
-		pthread_create(rules->philosophers[i].thread, NULL);
+		pthread_create(rules->philosophers[i]->thread, NULL,\
+			philos_routine(), rules->philosophers[i]);
+		i++;
 	}
 	i = 0;
 	while (i < rules->number_of_philosophers)
 	{
-		pthread_join(rules->philosophers[i].thread, NULL);
+		pthread_join(rules->philosophers[i]->thread, NULL);
 		i++;
 	}
+}
+
+static void	allocate_philosophers(t_philosopher **philos, int nb_philo)
+{
+	int	i;
+
+	i = 0;
+	philos = malloc(sizeof(t_philosopher *) * nb_philo);
+	if (!philos)
+		cleanup_and_exit();
+	while (i < nb_philo)
+	{
+		philos[i] = malloc(sizeof(t_philosopher));
+		if (!philos[i])
+			cleanup_and_exit();
+		i++;
+	}
+}
+
+static void	initialize_mutexes(t_rules *rules)
+{
+	int	i;
+
+	i = 0;
+	while (i < rules->number_of_philosophers)
+	{
+    	pthread_mutex_init(&rules->forks[i], NULL);
+		i++;
+	}
+	pthread_mutex_init(&rules->print_lock, NULL);
+	pthread_mutex_init(&rules->death_lock, NULL);
+}
+
+static void	init_philos_content(t_philosopher **philos)
+{
+	
 }
 
 void	initialize_vars(int argc, char **argv, t_rules *rules)
@@ -68,7 +106,7 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 	rules->must_eat = val[4];
 	gettimeofday(&tv, NULL);
 	rules->start_time = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
-	rules->philosophers = malloc(sizeof(t_philosopher) * val[0]);
-	if (!rules->philosophers)
-		cleanup_and_exit(rules, 1);
+	initialize_mutexes(rules);
+	allocate_philosophers(rules->philosophers, val[0]);
+	initialize_join_threads(rules);
 }

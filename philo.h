@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/13 16:09:48 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/13 21:17:24 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_rules
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_lock;
 	pthread_mutex_t	death_lock;
-	t_philosopher	*philosophers;
+	t_philosopher	**philosophers;
 }	t_rules;
 
 // Libft functions
