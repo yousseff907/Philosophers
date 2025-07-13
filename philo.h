@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/12 18:46:05 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/13 16:09:48 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 // Data structures
 
-typedef struct	s_philosopher
+typedef struct s_philosopher
 {
 	int				id;
 	pthread_t		thread;
@@ -36,8 +36,7 @@ typedef struct	s_philosopher
 	t_rules			*rules;
 }	t_philosopher;
 
-
-typedef struct	s_rules
+typedef struct s_rules
 {
 	int				number_of_philosophers;
 	int				time_to_die;
@@ -46,12 +45,11 @@ typedef struct	s_rules
 	int				must_eat;
 	int				someone_died;
 	long long		start_time;
-	pthread_mutex_t *forks;
-	pthread_mutex_t print_lock;
-	pthread_mutex_t death_lock;
-	t_philosopher   *philosophers;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	print_lock;
+	pthread_mutex_t	death_lock;
+	t_philosopher	*philosophers;
 }	t_rules;
-
 
 // Libft functions
 
@@ -60,7 +58,6 @@ int		ft_atoi(const char *str);
 
 // Validation and parsing
 
-void	validate_args(int argc, char **argv, t_rules *rules, int *val);
 void	initialize_vars(int argc, char **argv, t_rules *rules);
 
 #endif
