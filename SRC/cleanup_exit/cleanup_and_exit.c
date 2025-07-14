@@ -6,13 +6,13 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 01:23:17 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/14 09:25:36 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/14 16:07:56 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	destroy_mutexes(t_rules *rules)
+static void	destroy_mutexes(t_rules *rules)
 {
 	int	i;
 
@@ -26,19 +26,19 @@ void	destroy_mutexes(t_rules *rules)
 	pthread_mutex_destroy(&rules->death_lock);
 }
 
-void	free_philosophers(t_rules *rules)
+static void	free_philosophers(t_rules *rules)
 {
 	if (rules->philosophers)
 		free(rules->philosophers);
 }
 
-void	free_forks(t_rules *rules)
+static void	free_forks(t_rules *rules)
 {
 	if (rules->forks)
 		free(rules->forks);
 }
 
-void	free_rules(t_rules *rules)
+static void	free_rules(t_rules *rules)
 {
     destroy_mutexes(rules);
     free_philosophers(rules);

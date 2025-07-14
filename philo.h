@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/14 11:31:12 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/14 16:08:24 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,9 @@ int		ft_atoi(const char *str);
 // Validation and parsing
 
 void	initialize_vars(int argc, char **argv, t_rules *rules);
+
+// memory cleanup
+
+void	cleanup_and_exit(t_rules *rules, int exit_code);
 
 #endif
