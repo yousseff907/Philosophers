@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/13 23:17:15 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/14 11:32:24 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,16 @@ static void	initialize_mutexes(t_rules *rules)
 	pthread_mutex_init(&rules->death_lock, NULL);
 }
 
-static void	init_philos_content(t_philosopher **philos)
+static void	init_philos_content(t_rules *rules)
 {
-	
+	int	i;
+
+	i = 0;
+	while(i < rules->number_of_philosophers)
+	{
+		rules->philosophers[i]->id = i;
+		rules->philosophers[i]->left_fork = rules->forks[i];
+	}
 }
 
 void	initialize_vars(int argc, char **argv, t_rules *rules)

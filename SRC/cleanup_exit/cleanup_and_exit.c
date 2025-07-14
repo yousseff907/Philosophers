@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 01:23:17 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/13 01:36:44 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/14 09:25:36 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	free_forks(t_rules *rules)
 
 void	free_rules(t_rules *rules)
 {
-	if (!rules)
-		return ;
     destroy_mutexes(rules);
     free_philosophers(rules);
     free_forks(rules);
@@ -50,8 +48,6 @@ void	free_rules(t_rules *rules)
 
 void	cleanup_and_exit(t_rules *rules, int exit_code)
 {
-	if (!rules)
-		return ;
 	destroy_mutexes(rules);
 	free_philosophers(rules);
 	free_forks(rules);
