@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:46:20 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/15 15:46:40 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/17 01:20:50 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	*philosopher_routine(void *arg)
 {
-	t_philosopher	*philo = (t_philosopher *)arg;
+	t_philosopher	*philo;
+
+	philo = (t_philosopher *)arg;
 	
 	// TODO: Implement philosopher behavior
 	// - Think, eat, sleep cycle
