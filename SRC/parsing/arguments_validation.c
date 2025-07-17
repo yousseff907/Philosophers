@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/15 16:24:31 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/17 22:24:30 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	*valid_args(int argc, char **argv, t_rules *rules, long long *val)
 	rules = malloc(sizeof(t_rules));
 	if (!rules)
 		cleanup_and_exit(rules, 1);
-	if (argc < 5 || argc < 6)
+	if (argc < 5 || argc > 6)
 	{
 		ft_putendl_fd("Error : enter 5 arguments", 2);
 		cleanup_and_exit(rules, 1);
@@ -47,7 +47,7 @@ static void	init_philos_content(t_rules *rules)
 
 	philo_count = rules->number_of_philosophers;
 	i = 0;
-	while(i < rules->number_of_philosophers)
+	while (i < rules->number_of_philosophers)
 	{
 		rules->philosophers[i]->id = i;
 		rules->philosophers[i]->left_fork = &rules->forks[i];
@@ -61,7 +61,7 @@ static void	init_philos_content(t_rules *rules)
 
 void	initialize_vars(int argc, char **argv, t_rules *rules)
 {
-	long long		val[argc - 1];
+	long long		val[5];
 
 	allocate_rules(rules);
 	valid_args(argc, argv, rules, val);
