@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/17 01:20:58 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 00:55:00 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		ft_atoi(const char *str);
 // Memory allocations and mutexes / threads initialization
 
 void	allocate_rules(t_rules *rules);
-void	initialize_join_threads(t_rules *rules);
+void	initialize_threads(t_rules *rules);
 void	allocate_philosophers(t_rules *rules, int nb_philo);
 void	initialize_mutexes(t_rules *rules);
 

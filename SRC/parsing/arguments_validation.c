@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/17 22:24:30 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 00:54:49 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 	rules->start_time = get_curr_time();
 	initialize_mutexes(rules);
 	allocate_philosophers(rules->philosophers, val[0]);
-	initialize_join_threads(rules);
+	initialize_threads(rules);
 	init_philos_content(rules);
 }
