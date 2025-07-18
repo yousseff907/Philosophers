@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 00:54:49 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 01:00:54 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 {
 	long long		val[5];
 
-	allocate_rules(rules);
 	valid_args(argc, argv, rules, val);
 	rules->number_of_philosophers = val[0];
 	rules->time_to_die = val[1];

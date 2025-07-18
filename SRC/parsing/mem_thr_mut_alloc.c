@@ -6,17 +6,20 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:53:45 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 00:54:30 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 01:00:01 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	allocate_rules(t_rules *rules)
+t_rules	*allocate_rules(void)
 {
+	t_rules	*rules;
+
 	rules = malloc(sizeof(t_rules));
 	if (!rules)
 		cleanup_and_exit(rules, 1);
+	return (rules);
 }
 
 void	initialize_threads(t_rules *rules)
