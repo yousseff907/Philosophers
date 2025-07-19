@@ -6,9 +6,11 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 23:57:18 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/12 17:22:11 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 22:04:35 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../philo.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:53:05 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 22:00:14 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 22:04:24 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../philo.h"
 
 void	print_status(t_philosopher *philo, char *status)
 {

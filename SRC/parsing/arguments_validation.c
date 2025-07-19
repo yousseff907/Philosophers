@@ -6,11 +6,11 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 15:03:44 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 22:05:04 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../philo.h"
 
 static int	*valid_args(int argc, char **argv, t_rules *rules, long long *val)
 {

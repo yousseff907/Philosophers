@@ -6,11 +6,11 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 01:23:17 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 00:55:35 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 22:04:45 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../philo.h"
 
 static void	destroy_mutexes(t_rules *rules)
 {

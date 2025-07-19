@@ -6,11 +6,11 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:52:25 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/15 15:53:10 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 22:04:51 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../philo.h"
 
 int	get_curr_time(void)
 {
