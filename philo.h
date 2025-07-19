@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 21:54:38 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 01:11:15 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,6 @@ typedef struct s_rules
 	t_philosopher	**philosophers;
 }	t_rules;
 
-// typedef struct s_philosopher
-// {
-// 	int				id;
-// 	pthread_t		thread;
-// 	pthread_mutex_t	*left_fork;
-// 	pthread_mutex_t	*right_fork;
-// 	long long		last_meal_time;
-// 	int				meals_eaten;
-// 	t_rules			*rules;
-// }	t_philosopher;
-
 // General helpers functions
 
 void	ft_putendl_fd(char *s, int fd);
@@ -86,6 +75,13 @@ void	initialize_vars(int argc, char **argv, t_rules *rules);
 void	*philosopher_routine(void *arg);
 void	*single_philosopher_routine(void *arg);
 void	print_status(t_philosopher *philo, char *status);
+void	someone_died(t_philosopher *philo);
+
+// Simulation helpers
+
+int		simulation_is_over(t_rules *rules);
+void	update_mealtime(t_philosopher *philo);
+void	my_usleep(t_rules *rules, int duration);
 
 // memory cleanup
 

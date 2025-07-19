@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 22:05:04 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 00:42:48 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ static int	*valid_args(int argc, char **argv, t_rules *rules, long long *val)
 static void	init_philos_content(t_rules *rules)
 {
 	int	i;
-	int	philo_count;
+	int	philocnt;
 
-	philo_count = rules->number_of_philosophers;
+	philocnt = rules->number_of_philosophers;
 	i = 0;
 	while (i < rules->number_of_philosophers)
 	{
 		rules->philosophers[i]->id = i;
 		rules->philosophers[i]->left_fork = &rules->forks[i];
-		rules->philosophers[i]->right_fork = &rules->forks[(i + 1) % philo_count];
+		rules->philosophers[i]->right_fork = &rules->forks[(i + 1) % philocnt];
 		rules->philosophers[i]->last_meal_time = 0;
 		rules->philosophers[i]->meals_eaten = 0;
 		rules->philosophers[i]->rules = rules;

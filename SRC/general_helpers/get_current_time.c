@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:52:25 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 22:04:51 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 22:28:39 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	get_curr_time(void)
 {
-	int	time;
+	int				time;
 	struct timeval	tv;
 
 	time = 0;
