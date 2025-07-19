@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 01:00:54 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 14:42:49 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ static int	*valid_args(int argc, char **argv, t_rules *rules, long long *val)
 	int	count;
 
 	count = 0;
-	rules = malloc(sizeof(t_rules));
-	if (!rules)
-		cleanup_and_exit(rules, 1);
 	if (argc < 5 || argc > 6)
 	{
 		ft_putendl_fd("Error : enter 5 arguments", 2);
@@ -74,6 +71,6 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 	rules->start_time = get_curr_time();
 	initialize_mutexes(rules);
 	allocate_philosophers(rules->philosophers, val[0]);
-	initialize_threads(rules);
 	init_philos_content(rules);
+	initialize_threads(rules);
 }

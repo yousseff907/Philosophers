@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 01:00:43 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 14:48:04 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	initialize_vars(int argc, char **argv, t_rules *rules);
 // Philosophers routine and behavior
 
 void	*philosopher_routine(void *arg);
+void	*single_philosopher_routine(void *arg);
 
 // memory cleanup
 
