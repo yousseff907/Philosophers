@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 14:42:49 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 15:03:44 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 	rules->time_to_eat = val[2];
 	rules->time_to_sleep = val[3];
 	rules->someone_died = 0;
-	if (rules->must_eat != 1)
+	if (rules->must_eat != -1)
 		rules->must_eat = val[4];
 	rules->start_time = get_curr_time();
 	initialize_mutexes(rules);

@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 14:48:04 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/19 16:32:20 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ typedef struct s_rules
 	t_philosopher	**philosophers;
 }	t_rules;
 
-// Libft functions
+// General helpers functions
 
 void	ft_putendl_fd(char *s, int fd);
 int		ft_atoi(const char *str);
+int		get_curr_time(void);
 
 // Memory allocations and mutexes / threads initialization
 
@@ -71,6 +72,9 @@ void	initialize_vars(int argc, char **argv, t_rules *rules);
 
 void	*philosopher_routine(void *arg);
 void	*single_philosopher_routine(void *arg);
+int		take_right_fork(t_philosopher *philo);
+int		take_left_fork(t_philosopher *philo);
+int		take_both_forks(t_philosopher *philo);
 
 // memory cleanup
 
