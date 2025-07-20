@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 01:23:17 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 18:00:49 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 00:26:56 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,8 @@ static void	destroy_mutexes(t_rules *rules)
 
 static void	free_philosophers(t_rules *rules)
 {
-	int	i;
-
-	i = 0;
 	if (rules->philosophers)
-	{
-		while (i < rules->number_of_philosophers)
-		{
-			pthread_join(rules->philosophers[i]->thread, NULL);
-			i++;
-		}
 		free(rules->philosophers);
-	}
 }
 
 static void	free_forks(t_rules *rules)

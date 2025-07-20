@@ -6,7 +6,7 @@
 #    By: yitani <yitani@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/20 17:44:10 by yitani            #+#    #+#              #
-#    Updated: 2025/07/20 18:05:27 by yitani           ###   ########.fr        #
+#    Updated: 2025/07/21 00:11:42 by yitani           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,9 +62,9 @@ clean:
 	@echo "[✔️ ] Objects removed."
 
 fclean: clean
-	@echo "[💣] Nuking $(NAME)"
+	@echo "[💣] Nuking philosophers"
 	@rm -f $(NAME)
-	@echo "[✔️ ] $(NAME) has been nuked."
+	@echo "[✔️ ] the philosophers have been nuked."
 
 re: fclean all
 

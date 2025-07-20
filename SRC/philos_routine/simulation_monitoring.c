@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:31:16 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 17:26:26 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 00:21:38 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ void	run_monitor(t_rules *rules)
 	i = 0;
 	while (i < rules->number_of_philosophers - 1)
 	{
-		if (rules->philosophers[i]->last_meal_time >= rules->time_to_die)
+		if (get_curr_time() - rules->philosophers[i]->last_meal_time >= rules->time_to_die)
 			someone_died(rules->philosophers[i]);
-		if (rules->must_eat != -1)
-			if (all_have_eaten(rules))
-				kill_simulation(rules);
+		i++;
 	}
+	if (rules->must_eat != -1)
+		if (all_have_eaten(rules))
+			kill_simulation(rules);
 }
