@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 17:34:44 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 23:15:53 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_rules	*allocate_rules(void);
 void	initialize_threads(t_rules *rules);
 void	allocate_philosophers(t_rules *rules, int nb_philo);
 void	initialize_mutexes(t_rules *rules);
+void	allocate_forks(t_rules *rules);
 
 // Validation and parsing
 

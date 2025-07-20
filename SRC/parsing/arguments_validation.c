@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 17:47:05 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 23:24:47 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	*valid_args(int argc, char **argv, t_rules *rules, int *val)
 		rules->must_eat = -1;
 	while (count < argc - 1)
 	{
-		val[count] = ft_atoi(argv[count]);
+		val[count] = ft_atoi(argv[count + 1]);
 		if (val[count] <= 0)
 		{
 			ft_putendl_fd("Error : enter numerical non zero arguments", 2);
@@ -49,7 +49,7 @@ static void	init_philos_content(t_rules *rules)
 		rules->philosophers[i]->id = i;
 		rules->philosophers[i]->left_fork = &rules->forks[i];
 		rules->philosophers[i]->right_fork = &rules->forks[(i + 1) % philocnt];
-		rules->philosophers[i]->last_meal_time = 0;
+		rules->philosophers[i]->last_meal_time = rules->start_time;
 		rules->philosophers[i]->meals_eaten = 0;
 		rules->philosophers[i]->rules = rules;
 		i++;
@@ -69,6 +69,7 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 	if (rules->must_eat != -1)
 		rules->must_eat = val[4];
 	rules->start_time = get_curr_time();
+	allocate_forks(rules);
 	initialize_mutexes(rules);
 	allocate_philosophers(rules, val[0]);
 	init_philos_content(rules);

@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:53:45 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 18:00:03 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 23:15:40 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,12 @@ void	initialize_mutexes(t_rules *rules)
 	if (pthread_mutex_init(&rules->print_lock, NULL) != 0)
 		cleanup_and_exit(rules, 1);
 	if (pthread_mutex_init(&rules->death_lock, NULL) != 0)
+		cleanup_and_exit(rules, 1);
+}
+
+void	allocate_forks(t_rules *rules)
+{
+	rules->forks = malloc(sizeof(pthread_mutex_t) * rules->number_of_philosophers);
+	if (!rules->forks)
 		cleanup_and_exit(rules, 1);
 }
