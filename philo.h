@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 01:11:15 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 16:11:17 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	someone_died(t_philosopher *philo);
 
 // Simulation helpers
 
+void	kill_simulation(t_rules *rules);
 int		simulation_is_over(t_rules *rules);
 void	update_mealtime(t_philosopher *philo);
 void	my_usleep(t_rules *rules, int duration);

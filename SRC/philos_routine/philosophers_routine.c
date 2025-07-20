@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:46:20 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 01:10:52 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 15:30:53 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*single_philosopher_routine(void *arg)
 
 	philo = (t_philosopher *)arg;
 	pthread_mutex_lock(philo->left_fork);
-	my_usleep(philo->rules, philo->rules->time_to_die);
+	usleep(philo->rules->time_to_die * 1000);
 	print_status(philo, "is thinking");
 	pthread_mutex_unlock(philo->left_fork);
 	someone_died(philo->rules);
