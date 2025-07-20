@@ -6,13 +6,13 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 00:42:48 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 17:47:05 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-static int	*valid_args(int argc, char **argv, t_rules *rules, long long *val)
+static int	*valid_args(int argc, char **argv, t_rules *rules, int *val)
 {
 	int	count;
 
@@ -58,7 +58,7 @@ static void	init_philos_content(t_rules *rules)
 
 void	initialize_vars(int argc, char **argv, t_rules *rules)
 {
-	long long		val[5];
+	int	val[5];
 
 	valid_args(argc, argv, rules, val);
 	rules->number_of_philosophers = val[0];
@@ -70,7 +70,7 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 		rules->must_eat = val[4];
 	rules->start_time = get_curr_time();
 	initialize_mutexes(rules);
-	allocate_philosophers(rules->philosophers, val[0]);
+	allocate_philosophers(rules, val[0]);
 	init_philos_content(rules);
 	initialize_threads(rules);
 }
