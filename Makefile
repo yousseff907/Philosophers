@@ -6,7 +6,7 @@
 #    By: yitani <yitani@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/20 17:44:10 by yitani            #+#    #+#              #
-#    Updated: 2025/07/20 17:44:33 by yitani           ###   ########.fr        #
+#    Updated: 2025/07/20 18:05:27 by yitani           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ GENERAL_HELPERS_SRCS = SRC/general_helpers/ft_atoi.c \
 PARSING_SRCS = SRC/parsing/arguments_validation.c \
                SRC/parsing/mem_thr_mut_alloc.c
 
-PHILOS_ROUTINE_SRCS = SRC/philos_routine/philosophers_routine.c
+PHILOS_ROUTINE_SRCS = 	SRC/philos_routine/philosophers_routine.c \
+						SRC/philos_routine/routine_helpers.c \
+						SRC/philos_routine/simulation_helpers.c \
+						SRC/philos_routine/simulation_monitoring.c
 
 CLEANUP_EXIT_SRCS = SRC/cleanup_exit/cleanup_and_exit.c
 

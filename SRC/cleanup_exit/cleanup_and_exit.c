@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 01:23:17 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 22:28:56 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 18:00:49 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ void	cleanup_and_exit(t_rules *rules, int exit_code)
 	destroy_mutexes(rules);
 	free_philosophers(rules);
 	free_forks(rules);
-	free(rules);
+	free_rules(rules);
 	exit(exit_code);
 }

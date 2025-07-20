@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:46:20 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 17:37:35 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 18:02:17 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,9 @@ void	*single_philosopher_routine(void *arg)
 	usleep(philo->rules->time_to_die * 1000);
 	print_status(philo, "is thinking");
 	pthread_mutex_unlock(philo->left_fork);
-	someone_died(philo->rules);
+	someone_died(philo);
 	return (NULL);
 }
-
-// TODO: Implement philosopher behavior
-	// - Think, eat, sleep cycle
-	// - Handle fork acquisition/release
-	// - Check for death conditions
 
 void	*philosopher_routine(void *arg)
 {

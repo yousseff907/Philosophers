@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:53:45 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 22:05:10 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 18:00:03 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	initialize_threads(t_rules *rules)
 	{
 		while (i < rules->number_of_philosophers)
 		{
-			pthread_create(rules->philosophers[i]->thread, NULL,
+			pthread_create(&rules->philosophers[i]->thread, NULL,
 				philosopher_routine, rules->philosophers[i]);
 			i++;
 		}
 	}
 	else
 	{
-		pthread_create(rules->philosophers[i]->thread, NULL,
+		pthread_create(&rules->philosophers[i]->thread, NULL,
 			single_philosopher_routine, rules->philosophers[i]);
 	}
 }
