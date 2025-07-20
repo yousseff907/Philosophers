@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:53:05 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 16:11:23 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 17:03:32 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,28 @@ void	print_status(t_philosopher *philo, char *status)
 		printf("%lld %d %s\n", time_stamp, philo->id + 1, status);
 	}
 	pthread_mutex_unlock(&philo->rules->print_lock);
+}
+
+void	release_forks(t_philosopher *philo)
+{
+	pthread_mutex_unlock(philo->left_fork);
+	pthread_mutex_unlock(philo->right_fork);
+}
+
+void	even_philo_takes_forks(t_philosopher *philo)
+{
+	pthread_mutex_lock(philo->right_fork);
+	print_status(philo, "has taken a fork");
+	pthread_mutex_lock(philo->left_fork);
+	print_status(philo, "has taken a fork");
+}
+
+void	odd_philo_takes_forks(t_philosopher *philo)
+{
+	pthread_mutex_lock(philo->left_fork);
+	print_status(philo, "has taken a fork");
+	pthread_mutex_lock(philo->right_fork);
+	print_status(philo, "has taken a fork");
 }
 
 void	someone_died(t_philosopher *philo)

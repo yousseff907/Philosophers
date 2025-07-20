@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 16:11:17 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/20 17:34:44 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,21 @@ void	*philosopher_routine(void *arg);
 void	*single_philosopher_routine(void *arg);
 void	print_status(t_philosopher *philo, char *status);
 void	someone_died(t_philosopher *philo);
+void	release_forks(t_philosopher *philo);
+void	even_philo_takes_forks(t_philosopher *philo);
+void	odd_philo_takes_forks(t_philosopher *philo);
 
 // Simulation helpers
 
 void	kill_simulation(t_rules *rules);
 int		simulation_is_over(t_rules *rules);
-void	update_mealtime(t_philosopher *philo);
+void	update_mealtime_run_monitor(t_philosopher *philo);
 void	my_usleep(t_rules *rules, int duration);
+void	philo_is_sleeping(t_philosopher *philo);
+
+// Simulation monitoring
+
+void	run_monitor(t_rules *rules);
 
 // memory cleanup
 
