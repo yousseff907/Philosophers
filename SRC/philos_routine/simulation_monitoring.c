@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:31:16 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 12:42:48 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 14:41:49 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	all_have_eaten(t_rules *rules)
 			count++;
 		i++;
 	}
-	return (count == rules->number_of_philosophers - 1);
+	return (count == rules->number_of_philosophers);
 }
 
 void	run_monitor(t_rules *rules)
