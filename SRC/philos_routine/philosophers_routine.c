@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:46:20 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 20:10:29 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 20:34:53 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	*philosopher_routine(void *arg)
 		philo_is_sleeping(philo);
 		if (philo->rules->number_of_philosophers % 2 == 1)
 		{
-			my_usleep(philo->rules, 1);
+			my_usleep(philo->rules, (philo->rules->time_to_eat * 2 ) - philo->rules->time_to_sleep);
 			print_status(philo, "is thinking");
 		}
 	}
