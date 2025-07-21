@@ -6,19 +6,19 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 17:06:38 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 18:51:31 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-static void	valid_args(int argc, char **argv, t_rules *rules, int *val)
+static int	valid_args(int argc, char **argv, t_rules *rules, int *val)
 {
 	int	count;
 
 	count = 0;
 	if (argc < 5 || argc > 6)
-		return (printf("Error : enter 5 arguments"), free(rules), exit(1));
+		return (printf("Error : enter 5 arguments\n"), free(rules), (1));
 	if (argc == 5)
 		rules->must_eat = -1;
 	else
@@ -28,10 +28,12 @@ static void	valid_args(int argc, char **argv, t_rules *rules, int *val)
 		val[count] = ft_atoi(argv[count + 1]);
 		if (val[count] <= 0)
 		{
-			return (printf("Error : enter 5 arguments"), free(rules), exit(1));
+			printf("Error : enter positive numerical arguments\n");
+			return (free(rules), (1));
 		}
 		count++;
 	}
+	return (0);
 }
 
 static void	init_philos_content(t_rules *rules)
@@ -53,16 +55,7 @@ static void	init_philos_content(t_rules *rules)
 	}
 }
 
-void	create_monitor_thread(t_rules *rules)
-{
-	if (pthread_create(&rules->monitor_thread, NULL, run_monitor, rules) != 0)
-	{
-		ft_putendl_fd("Error: Failed to create monitor thread", 2);
-		cleanup_and_exit(rules, 1);
-	}
-}
-
-void	initialize_vars(int argc, char **argv, t_rules *rules)
+int	initialize_vars(int argc, char **argv, t_rules *rules)
 {
 	int	val[5];
 	int	count;
@@ -73,7 +66,8 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 		val[count] = 0;
 		count++;
 	}
-	valid_args(argc, argv, rules, val);
+	if (valid_args(argc, argv, rules, val) != 0)
+		return (1);
 	rules->number_of_philosophers = val[0];
 	rules->time_to_die = val[1];
 	rules->time_to_eat = val[2];
@@ -87,5 +81,5 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 	allocate_philosophers(rules, val[0]);
 	init_philos_content(rules);
 	initialize_threads(rules);
-	create_monitor_thread(rules);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 15:47:02 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 18:43:33 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	allocate_forks(t_rules *rules);
 
 // Validation and parsing
 
-void	initialize_vars(int argc, char **argv, t_rules *rules);
+int		initialize_vars(int argc, char **argv, t_rules *rules);
 
 // Philosophers routine and behavior
 
