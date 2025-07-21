@@ -6,37 +6,32 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 15:20:45 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 17:06:38 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-static int	*valid_args(int argc, char **argv, t_rules *rules, int *val)
+static void	valid_args(int argc, char **argv, t_rules *rules, int *val)
 {
 	int	count;
 
 	count = 0;
 	if (argc < 5 || argc > 6)
-	{
-		ft_putendl_fd("Error : enter 5 arguments", 2);
-		free(rules);
-		exit(1);
-	}
+		return (printf("Error : enter 5 arguments"), free(rules), exit(1));
 	if (argc == 5)
 		rules->must_eat = -1;
+	else
+		rules->must_eat = 0;
 	while (count < argc - 1)
 	{
 		val[count] = ft_atoi(argv[count + 1]);
 		if (val[count] <= 0)
 		{
-			ft_putendl_fd("Error : enter numerical non zero arguments", 2);
-			free(rules);
-			exit(1);
+			return (printf("Error : enter 5 arguments"), free(rules), exit(1));
 		}
 		count++;
 	}
-	return (val);
 }
 
 static void	init_philos_content(t_rules *rules)
@@ -70,7 +65,14 @@ void	create_monitor_thread(t_rules *rules)
 void	initialize_vars(int argc, char **argv, t_rules *rules)
 {
 	int	val[5];
+	int	count;
 
+	count = 0;
+	while (count < 5)
+	{
+		val[count] = 0;
+		count++;
+	}
 	valid_args(argc, argv, rules, val);
 	rules->number_of_philosophers = val[0];
 	rules->time_to_die = val[1];

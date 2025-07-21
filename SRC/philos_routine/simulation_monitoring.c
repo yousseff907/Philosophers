@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:31:16 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 16:36:30 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 17:19:18 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ static int	all_have_eaten(t_rules *rules)
 
 	i = 0;
 	count = 0;
+	pthread_mutex_lock(&rules->death_lock);
 	while (i < rules->number_of_philosophers)
 	{
 		if (rules->philosophers[i]->meals_eaten == rules->must_eat)
 			count++;
 		i++;
 	}
+	pthread_mutex_unlock(&rules->death_lock);
 	return (count == rules->number_of_philosophers);
 }
 
