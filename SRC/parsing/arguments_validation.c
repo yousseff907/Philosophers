@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 23:24:47 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 09:28:15 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static int	*valid_args(int argc, char **argv, t_rules *rules, int *val)
 	if (argc < 5 || argc > 6)
 	{
 		ft_putendl_fd("Error : enter 5 arguments", 2);
-		cleanup_and_exit(rules, 1);
+		free(rules);
+		exit(1);
 	}
 	if (argc == 5)
 		rules->must_eat = -1;
@@ -30,7 +31,8 @@ static int	*valid_args(int argc, char **argv, t_rules *rules, int *val)
 		if (val[count] <= 0)
 		{
 			ft_putendl_fd("Error : enter numerical non zero arguments", 2);
-			cleanup_and_exit(rules, 1);
+			free(rules);
+			exit(1);
 		}
 		count++;
 	}

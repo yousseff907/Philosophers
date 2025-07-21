@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 01:23:17 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 00:26:56 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 09:35:05 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,18 @@ static void	destroy_mutexes(t_rules *rules)
 
 static void	free_philosophers(t_rules *rules)
 {
+	int	i;
+
+	i = 0;
 	if (rules->philosophers)
-		free(rules->philosophers);
+	{
+		while (i < rules->number_of_philosophers)
+		{
+			free(rules->philosophers[i]);
+			i++;
+		}
+	}
+	free(rules->philosophers);
 }
 
 static void	free_forks(t_rules *rules)
@@ -38,19 +48,19 @@ static void	free_forks(t_rules *rules)
 		free(rules->forks);
 }
 
-static void	free_rules(t_rules *rules)
-{
-	destroy_mutexes(rules);
-	free_philosophers(rules);
-	free_forks(rules);
-	free(rules);
-}
+// static void	free_rules(t_rules *rules)
+// {
+// 	destroy_mutexes(rules);
+// 	free_philosophers(rules);
+// 	free_forks(rules);
+// 	free(rules);
+// }
 
 void	cleanup_and_exit(t_rules *rules, int exit_code)
 {
 	destroy_mutexes(rules);
 	free_philosophers(rules);
 	free_forks(rules);
-	free_rules(rules);
+	free(rules);
 	exit(exit_code);
 }
