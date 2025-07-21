@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:31:16 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 17:19:18 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 18:55:27 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	all_have_eaten(t_rules *rules)
 
 static int	philosopher_is_dead(t_rules *rules)
 {
-	int	i;
+	int			i;
 	long long	meal_time;
 
 	i = 0;

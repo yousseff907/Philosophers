@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:53:05 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 17:34:22 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 18:55:14 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	odd_philo_takes_forks(t_philosopher *philo)
 {
 	int	right;
 	int	left;
-	
+
 	left = pthread_mutex_lock(philo->left_fork);
 	print_status(philo, "has taken a fork");
 	right = pthread_mutex_lock(philo->right_fork);
