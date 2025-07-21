@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 22:18:55 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 16:36:39 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 20:09:33 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	my_usleep(t_rules *rules, int duration)
 		curr_time = get_curr_time();
 		if (curr_time - start_time >= duration)
 			break ;
-		usleep(100);
+		usleep(500);
 	}
 }

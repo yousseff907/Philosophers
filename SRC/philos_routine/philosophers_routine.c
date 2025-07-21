@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:46:20 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 19:20:55 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 20:10:29 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ void	*single_philosopher_routine(void *arg)
 	my_usleep(philo->rules, philo->rules->time_to_die - 1);
 	pthread_mutex_unlock(philo->left_fork);
 	return (NULL);
+}
+
+int	test_ft(t_philosopher *philo)
+{
+	int	optimal_thinking_time;
+	
+	optimal_thinking_time = philo->rules->time_to_eat * 2 / philo->rules->number_of_philosophers;
+	if (optimal_thinking_time < 1) 
+   		optimal_thinking_time = 1;
+	return (optimal_thinking_time);
 }
 
 void	*philosopher_routine(void *arg)
