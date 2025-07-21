@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:46:20 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 12:39:40 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 14:13:04 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,16 @@ void	*philosopher_routine(void *arg)
 
 	philo = (t_philosopher *)arg;
 	if (philo->id % 2 == 0)
+	{
 		my_usleep(philo->rules, 1);
+		print_status(philo, "is thinking");
+	}
+	// if (philo->id % 2 == 1)
+	// 	odd_philo_takes_forks(philo);
+	// else if (philo->id % 2 == 0)
+	// 	even_philo_takes_forks(philo);
 	while (!simulation_is_over(philo->rules))
 	{
-		print_status(philo, "is thinking");
 		if (philo->id % 2 == 1)
 			odd_philo_takes_forks(philo);
 		else if (philo->id % 2 == 0)
