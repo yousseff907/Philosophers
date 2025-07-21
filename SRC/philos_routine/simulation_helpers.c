@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 22:18:55 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 15:17:20 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 16:36:39 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ int	simulation_is_over(t_rules *rules)
 	return (dead);
 }
 
-void	update_mealtime_run_monitor(t_philosopher *philo)
+void	update_mealtime(t_philosopher *philo)
 {
 	print_status(philo, "is eating");
+	pthread_mutex_lock(&philo->rules->death_lock);
 	philo->last_meal_time = get_curr_time();
 	philo->meals_eaten += 1;
+	pthread_mutex_unlock(&philo->rules->death_lock);
 	my_usleep(philo->rules, philo->rules->time_to_eat);
 }
 
@@ -54,6 +56,6 @@ void	my_usleep(t_rules *rules, int duration)
 		curr_time = get_curr_time();
 		if (curr_time - start_time >= duration)
 			break ;
-		usleep(1000);
+		usleep(100);
 	}
 }

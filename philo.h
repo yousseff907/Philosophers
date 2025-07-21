@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 15:41:37 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 15:47:02 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	odd_philo_takes_forks(t_philosopher *philo);
 
 void	kill_simulation(t_rules *rules);
 int		simulation_is_over(t_rules *rules);
-void	update_mealtime_run_monitor(t_philosopher *philo);
+void	update_mealtime(t_philosopher *philo);
 void	my_usleep(t_rules *rules, int duration);
 void	philo_is_sleeping(t_philosopher *philo);
 

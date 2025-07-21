@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:31:16 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 15:17:42 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 16:36:30 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@ static int	all_have_eaten(t_rules *rules)
 static int	philosopher_is_dead(t_rules *rules)
 {
 	int	i;
+	long long	meal_time;
 
 	i = 0;
+	pthread_mutex_lock(&rules->death_lock);
+	meal_time = get_curr_time() - rules->philosophers[i]->last_meal_time;
+	pthread_mutex_unlock(&rules->death_lock);
 	while (i < rules->number_of_philosophers)
 	{
-		if (get_curr_time() - rules->philosophers[i]->last_meal_time >= rules->time_to_die)
+		if (meal_time >= rules->time_to_die)
 		{
 			someone_died(rules->philosophers[i]);
 			return (1);
@@ -62,7 +66,7 @@ void	*run_monitor(void *arg)
 				break ;
 			}
 		}
-		usleep(1000);
+		usleep(100);
 	}
 	return (NULL);
 }
