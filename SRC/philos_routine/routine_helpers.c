@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:53:05 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 17:03:32 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 17:34:22 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,28 @@ void	release_forks(t_philosopher *philo)
 
 void	even_philo_takes_forks(t_philosopher *philo)
 {
-	pthread_mutex_lock(philo->right_fork);
+	int	right;
+	int	left;
+
+	right = pthread_mutex_lock(philo->right_fork);
 	print_status(philo, "has taken a fork");
-	pthread_mutex_lock(philo->left_fork);
+	left = pthread_mutex_lock(philo->left_fork);
 	print_status(philo, "has taken a fork");
+	if (right != 0 || left != 0)
+		release_forks(philo);
 }
 
 void	odd_philo_takes_forks(t_philosopher *philo)
 {
-	pthread_mutex_lock(philo->left_fork);
+	int	right;
+	int	left;
+	
+	left = pthread_mutex_lock(philo->left_fork);
 	print_status(philo, "has taken a fork");
-	pthread_mutex_lock(philo->right_fork);
+	right = pthread_mutex_lock(philo->right_fork);
 	print_status(philo, "has taken a fork");
+	if (right != 0 || left != 0)
+		release_forks(philo);
 }
 
 void	someone_died(t_philosopher *philo)
