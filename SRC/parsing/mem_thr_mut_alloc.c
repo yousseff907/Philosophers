@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:53:45 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/20 23:15:40 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 12:44:59 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	allocate_philosophers(t_rules *rules, int nb_philo)
 		rules->philosophers[i] = malloc(sizeof(t_philosopher));
 		if (!rules->philosophers[i])
 			cleanup_and_exit(rules, 1);
+		memset(rules->philosophers[i], 0, sizeof(t_philosopher));
 		i++;
 	}
 }
