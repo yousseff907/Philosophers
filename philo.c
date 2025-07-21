@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:09 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 12:52:08 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 15:41:41 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	main(int argc, char *argv[])
 		pthread_join(rules->philosophers[i]->thread, NULL);
 		i++;
 	}
-	cleanup_and_exit(rules, 0);
-	return (0);
+	pthread_join(rules->monitor_thread, NULL);
+	return (cleanup_and_exit(rules, 0));
 }

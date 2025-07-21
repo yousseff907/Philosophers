@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:03 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 14:26:42 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/21 15:20:45 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,15 @@ static void	init_philos_content(t_rules *rules)
 	}
 }
 
+void	create_monitor_thread(t_rules *rules)
+{
+	if (pthread_create(&rules->monitor_thread, NULL, run_monitor, rules) != 0)
+	{
+		ft_putendl_fd("Error: Failed to create monitor thread", 2);
+		cleanup_and_exit(rules, 1);
+	}
+}
+
 void	initialize_vars(int argc, char **argv, t_rules *rules)
 {
 	int	val[5];
@@ -76,4 +85,5 @@ void	initialize_vars(int argc, char **argv, t_rules *rules)
 	allocate_philosophers(rules, val[0]);
 	init_philos_content(rules);
 	initialize_threads(rules);
+	create_monitor_thread(rules);
 }
