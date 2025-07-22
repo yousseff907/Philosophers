@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/22 17:04:52 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/23 01:47:33 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,46 +56,45 @@ typedef struct s_rules
 
 // General helpers functions
 
-void	ft_putendl_fd(char *s, int fd);
-int		ft_atoi(const char *str);
-int		get_curr_time(void);
+int				ft_atoi(const char *str);
+long long		get_curr_time(void);
 
 // Memory allocations and mutexes / threads initialization
 
-t_rules	*allocate_rules(void);
-void	initialize_threads(t_rules *rules);
-void	allocate_philosophers(t_rules *rules, int nb_philo);
-void	initialize_mutexes(t_rules *rules);
-void	allocate_forks(t_rules *rules);
+t_rules			*allocate_rules(void);
+void			initialize_threads(t_rules *rules);
+void			allocate_philosophers(t_rules *rules, int nb_philo);
+void			initialize_mutexes(t_rules *rules);
+void			allocate_forks(t_rules *rules);
 
 // Validation and parsing
 
-int		initialize_vars(int argc, char **argv, t_rules *rules);
+int				initialize_vars(int argc, char **argv, t_rules *rules);
 
 // Philosophers routine and behavior
 
-void	*philosopher_routine(void *arg);
-void	*single_philosopher_routine(void *arg);
-void	print_status(t_philosopher *philo, char *status);
-void	someone_died(t_philosopher *philo);
-void	release_forks(t_philosopher *philo);
-void	even_philo_takes_forks(t_philosopher *philo);
-void	odd_philo_takes_forks(t_philosopher *philo);
+void			*philosopher_routine(void *arg);
+void			*single_philosopher_routine(void *arg);
+void			print_status(t_philosopher *philo, char *status);
+void			someone_died(t_philosopher *philo);
+void			release_forks(t_philosopher *philo);
+void			even_philo_takes_forks(t_philosopher *philo);
+void			odd_philo_takes_forks(t_philosopher *philo);
 
 // Simulation helpers
 
-void	kill_simulation(t_rules *rules);
-int		simulation_is_over(t_rules *rules);
-void	update_mealtime(t_philosopher *philo);
-void	my_usleep(t_rules *rules, int duration);
-void	philo_is_sleeping(t_philosopher *philo);
+void			kill_simulation(t_rules *rules);
+int				simulation_is_over(t_rules *rules);
+void			update_mealtime(t_philosopher *philo);
+void			my_usleep(t_rules *rules, int duration);
+void			philo_is_sleeping(t_philosopher *philo);
 
 // Simulation monitoring
 
-void	*run_monitor(void *arg);
+void			*run_monitor(void *arg);
 
 // memory cleanup
 
-int		cleanup_and_return(t_rules *rules, int exit_code);
+int				cleanup_and_return(t_rules *rules, int exit_code);
 
 #endif

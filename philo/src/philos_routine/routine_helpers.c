@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:53:05 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/22 18:50:47 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/23 01:46:38 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	release_forks(t_philosopher *philo)
 {
 	int	right;
 	int	left;
-	
+
 	left = pthread_mutex_unlock(philo->left_fork);
 	if (left == 0)
 		print_status(philo, "has released a fork");

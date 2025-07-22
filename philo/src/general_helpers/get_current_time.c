@@ -6,13 +6,13 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:52:25 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 22:28:39 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/23 01:44:17 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-int	get_curr_time(void)
+long long	get_curr_time(void)
 {
 	int				time;
 	struct timeval	tv;
