@@ -6,7 +6,7 @@
 #    By: yitani <yitani@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/20 17:44:10 by yitani            #+#    #+#              #
-#    Updated: 2025/07/21 18:52:57 by yitani           ###   ########.fr        #
+#    Updated: 2025/07/22 19:16:48 by yitani           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,19 +16,18 @@ CC        = cc
 
 CFLAGS    = -Wall -Wextra -Werror -pthread
 
-GENERAL_HELPERS_SRCS = SRC/general_helpers/ft_atoi.c \
-                       SRC/general_helpers/ft_putendl_fd.c \
-                       SRC/general_helpers/get_current_time.c
+GENERAL_HELPERS_SRCS = src/general_helpers/ft_atoi.c \
+                       src/general_helpers/get_current_time.c
 
-PARSING_SRCS = SRC/parsing/arguments_validation.c \
-               SRC/parsing/mem_thr_mut_alloc.c
+PARSING_SRCS = src/parsing/arguments_validation.c \
+               src/parsing/mem_thr_mut_alloc.c
 
-PHILOS_ROUTINE_SRCS = 	SRC/philos_routine/philosophers_routine.c \
-						SRC/philos_routine/routine_helpers.c \
-						SRC/philos_routine/simulation_helpers.c \
-						SRC/philos_routine/simulation_monitoring.c
+PHILOS_ROUTINE_SRCS = 	src/philos_routine/philosophers_routine.c \
+						src/philos_routine/routine_helpers.c \
+						src/philos_routine/simulation_helpers.c \
+						src/philos_routine/simulation_monitoring.c
 
-CLEANUP_EXIT_SRCS = SRC/cleanup_exit/cleanup_and_exit.c
+CLEANUP_EXIT_SRCS = src/cleanup_exit/cleanup_and_return.c
 
 MAIN_SRCS = philo.c
 

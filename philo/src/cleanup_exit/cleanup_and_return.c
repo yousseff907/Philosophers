@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleanup_and_exit.c                                 :+:      :+:    :+:   */
+/*   cleanup_and_return.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -48,7 +48,7 @@ static void	free_forks(t_rules *rules)
 		free(rules->forks);
 }
 
-int	cleanup_and_exit(t_rules *rules, int exit_code)
+int	cleanup_and_return(t_rules *rules, int exit_code)
 {
 	destroy_mutexes(rules);
 	free_philosophers(rules);

@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:46:20 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 20:34:53 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/22 19:08:46 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,12 @@ void	*single_philosopher_routine(void *arg)
 	philo = (t_philosopher *)arg;
 	pthread_mutex_lock(philo->left_fork);
 	print_status(philo, "has taken a fork");
+	pthread_mutex_unlock(philo->left_fork);
+	print_status(philo, "has released a fork");
 	my_usleep(philo->rules, 1);
 	print_status(philo, "is thinking");
 	my_usleep(philo->rules, philo->rules->time_to_die - 1);
-	pthread_mutex_unlock(philo->left_fork);
 	return (NULL);
-}
-
-int	test_ft(t_philosopher *philo)
-{
-	int	optimal_thinking_time;
-	
-	optimal_thinking_time = philo->rules->time_to_eat * 2 / philo->rules->number_of_philosophers;
-	if (optimal_thinking_time < 1) 
-   		optimal_thinking_time = 1;
-	return (optimal_thinking_time);
 }
 
 void	*philosopher_routine(void *arg)
@@ -57,8 +48,9 @@ void	*philosopher_routine(void *arg)
 		philo_is_sleeping(philo);
 		if (philo->rules->number_of_philosophers % 2 == 1)
 		{
-			my_usleep(philo->rules, (philo->rules->time_to_eat * 2 ) - philo->rules->time_to_sleep);
 			print_status(philo, "is thinking");
+			my_usleep(philo->rules, (philo->rules->time_to_eat * 2)
+				- philo->rules->time_to_sleep);
 		}
 	}
 	return (NULL);

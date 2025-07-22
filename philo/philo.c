@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 23:57:18 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/19 22:04:35 by yitani           ###   ########.fr       */
+/*   Created: 2025/07/12 16:34:09 by yitani            #+#    #+#             */
+/*   Updated: 2025/07/22 16:51:00 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../philo.h"
+#include "philo.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	main(int argc, char *argv[])
 {
-	int	i;
+	t_rules	*rules;
+	int		i;
 
 	i = 0;
-	while (s[i] != '\0')
+	rules = allocate_rules();
+	if (initialize_vars(argc, argv, rules) != 0)
+		return (1);
+	while (i < rules->number_of_philosophers)
 	{
-		write(fd, &s[i], 1);
+		pthread_join(rules->philosophers[i]->thread, NULL);
 		i++;
 	}
-	write(fd, "\n", 1);
+	pthread_join(rules->monitor_thread, NULL);
+	return (cleanup_and_return(rules, 0));
 }

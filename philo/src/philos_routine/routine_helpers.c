@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:53:05 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 18:55:14 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/22 18:50:47 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,15 @@ void	print_status(t_philosopher *philo, char *status)
 
 void	release_forks(t_philosopher *philo)
 {
-	pthread_mutex_unlock(philo->left_fork);
-	pthread_mutex_unlock(philo->right_fork);
+	int	right;
+	int	left;
+	
+	left = pthread_mutex_unlock(philo->left_fork);
+	if (left == 0)
+		print_status(philo, "has released a fork");
+	right = pthread_mutex_unlock(philo->right_fork);
+	if (right == 0)
+		print_status(philo, "has released a fork");
 }
 
 void	even_philo_takes_forks(t_philosopher *philo)
@@ -37,9 +44,11 @@ void	even_philo_takes_forks(t_philosopher *philo)
 	int	left;
 
 	right = pthread_mutex_lock(philo->right_fork);
-	print_status(philo, "has taken a fork");
+	if (right == 0)
+		print_status(philo, "has taken a fork");
 	left = pthread_mutex_lock(philo->left_fork);
-	print_status(philo, "has taken a fork");
+	if (left == 0)
+		print_status(philo, "has taken a fork");
 	if (right != 0 || left != 0)
 		release_forks(philo);
 }
@@ -50,9 +59,11 @@ void	odd_philo_takes_forks(t_philosopher *philo)
 	int	left;
 
 	left = pthread_mutex_lock(philo->left_fork);
-	print_status(philo, "has taken a fork");
+	if (left == 0)
+		print_status(philo, "has taken a fork");
 	right = pthread_mutex_lock(philo->right_fork);
-	print_status(philo, "has taken a fork");
+	if (right == 0)
+		print_status(philo, "has taken a fork");
 	if (right != 0 || left != 0)
 		release_forks(philo);
 }

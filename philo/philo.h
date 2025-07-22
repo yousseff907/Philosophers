@@ -6,7 +6,7 @@
 /*   By: yitani <yitani@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:34:12 by yitani            #+#    #+#             */
-/*   Updated: 2025/07/21 18:43:33 by yitani           ###   ########.fr       */
+/*   Updated: 2025/07/22 17:04:52 by yitani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,6 @@ void	*run_monitor(void *arg);
 
 // memory cleanup
 
-int		cleanup_and_exit(t_rules *rules, int exit_code);
+int		cleanup_and_return(t_rules *rules, int exit_code);
 
 #endif
